@@ -1,0 +1,21 @@
+#stalker:
+    #resource: "@StalkerBundle/Controller/"
+    #type: annotation
+    #prefix: /
+
+#fos_user:
+    #resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+#app:
+    #resource: "@AppBundle/Controller/"
+    #type: annotation
+
+
+stalker:
+    resource: "@StalkerBundle/Controller/"
+    type: annotation
+    prefix: /
+
+users:
+    type: rest
+    resource: StalkerBundle\Controller\UserController
