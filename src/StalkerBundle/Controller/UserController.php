@@ -12,21 +12,16 @@ use FOS\RestBundle\Controller\Annotations\View;
 class UserController extends Controller
 {
     /**
-     * @return array
+     * @return string json
      * @View()
      */
     public function getUsersAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $serializer = $this->get('jms_serializer');
         $users = $em->getRepository('StalkerBundle:User')->findAll();
-        var_dump($users);
-        die ('->end');
-        //return new Response('toto', 200);
-        //return new JsonResponse(['users' => json_encode($users)], 200);
-        return new JsonResponse($users, 200);
-        $response = new JsonResponse();
-        $response->setData($users);
-        return $response;
+
+        return new JsonResponse($serializer->serialize($users, 'json'), Response::HTTP_OK);
     }
 
     /**

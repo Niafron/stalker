@@ -3,12 +3,15 @@
 namespace StalkerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * User
  *
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="StalkerBundle\Repository\UserRepository")
+ * @ExclusionPolicy("all")
  */
 class User
 {
@@ -18,6 +21,7 @@ class User
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Expose
      */
     private $id;
 
@@ -25,6 +29,7 @@ class User
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Expose
      */
     private $name;
 
@@ -39,6 +44,7 @@ class User
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
+     * @Expose
      */
     private $email;
 
