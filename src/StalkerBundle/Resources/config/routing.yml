@@ -1,0 +1,8 @@
+stalker_api_user:
+    type: rest
+    resource: "StalkerBundle/Controller/UserController"
+    #prefix: /user
+
+#alptis_chronos_api_entites:
+    #type: rest
+    #resource: "Alptis\Chronos\ApiBundle\Controller\EntitesController"

@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
 
             new StalkerBundle\StalkerBundle()
         );

@@ -23,9 +23,10 @@
         "incenteev/composer-parameter-handler": "~2.0",
 
         "friendsofsymfony/rest-bundle": "~1.7.7",
-        "friendsofsymfony/user-bundle": "v2.0.0-alpha3",
-        "jms/serializer-bundle": "dev-master",
-        "doctrine/doctrine-fixtures-bundle": "dev-master"
+        "friendsofsymfony/user-bundle": "~2.0.0-alpha3",
+        "jms/serializer-bundle": "~1.1.0",
+        "doctrine/doctrine-fixtures-bundle": "~2.3.0",
+        "nelmio/api-doc-bundle": "2.11.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",

@@ -10,12 +10,29 @@
     #resource: "@AppBundle/Controller/"
     #type: annotation
 
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix: /api/doc
+
+
+#stalker_api:
+    #type: rest
+    #resource: "@StalkerBundle/Resources/config/routing.yml"
+    #prefix: /
 
 stalker:
     resource: "@StalkerBundle/Controller/"
     type: annotation
     prefix: /
 
-users:
-    type: rest
-    resource: StalkerBundle\Controller\UserController
+
+
+
+
+#users:
+    #type: rest
+    #prefix: /
+
+#users:
+    #resource: StalkerBundle\Controller\UserController
+    #type: rest
