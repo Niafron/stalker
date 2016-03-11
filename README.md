@@ -12,3 +12,7 @@ http://localhost:8888/stalker/web/app_dev.php/users/1
 
 http://localhost:8888/stalker/web/app_dev.php/api/doc
 
+
+doctrine:fixtures:load
+
+
