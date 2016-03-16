@@ -35,7 +35,6 @@ class ArmeType
      */
     private $description;
 
-
     /**
      * Get id
      *

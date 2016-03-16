@@ -10,24 +10,31 @@ use StalkerBundle\Entity\ArmeType;
 
 class LoadArmeData implements FixtureInterface
 {
-    /**
-     * Load data fixtures with the passed EntityManager
-     */
     public function load(ObjectManager $manager)
     {
-        $toto = new User();
-        $toto->setName('toto');
-        $toto->setPassword('toto');
-        $toto->setEmail('toto@toto.org');
+        $armeType = new ArmeType();
+        $armeType->setNom('Fusil');
+        $armeType->setDescription('Description du type d\'arme fusil.');
 
-        $titi  = new User();
-        $titi->setName('titi');
-        $titi->setPassword('titi');
-        $titi->setEmail('titi@titi.org');
+        $armeMunition = new ArmeMunition();
+        $armeMunition->setNom('12x70 Buckshot');
+        $armeMunition->setDescription('Description de la munition 12x70 Buckshot');
 
-        $manager->persist($toto);
-        $manager->persist($titi);
+        $arme = new Arme();
+        $arme->setArmeType($armeType);
+        $arme->setNom('Fusil à pompe');
+        $arme->setDescription('Description du fusil à pompe.');
+        $arme->setPrix(100);
+        $arme->setPorteeEffective(10);
+        $arme->setPorteeMaximale(6);
+        $arme->setDegat('3D4+2');
+        $arme->setDegatMin(5);
+        $arme->setDegatMax(14);
+        $arme->setBonusDeTouche(0);
+        $arme->setContenanceChargeur(3);
+        $arme->setArmeMunition($armeMunition);
 
+        $manager->persist($arme);
         $manager->flush();
     }
 }

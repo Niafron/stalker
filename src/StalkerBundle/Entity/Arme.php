@@ -24,7 +24,7 @@ class Arme
     /**
      * @var ArmeType
      *
-     * @ORM\ManyToOne(targetEntity="StalkerBundle\Entity\ArmeType")
+     * @ORM\ManyToOne(targetEntity="StalkerBundle\Entity\ArmeType", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $armeType;
@@ -102,7 +102,7 @@ class Arme
     /**
      * @var ArmeMunition
      *
-     * @ORM\ManyToOne(targetEntity="StalkerBundle\Entity\ArmeMunition")
+     * @ORM\ManyToOne(targetEntity="StalkerBundle\Entity\ArmeMunition", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $armeMunition;

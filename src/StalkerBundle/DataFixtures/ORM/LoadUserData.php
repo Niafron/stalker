@@ -8,9 +8,6 @@ use StalkerBundle\Entity\User;
 
 class LoadUserData implements FixtureInterface
 {
-    /**
-     * Load data fixtures with the passed EntityManager
-     */
     public function load(ObjectManager $manager)
     {
         $toto = new User();
