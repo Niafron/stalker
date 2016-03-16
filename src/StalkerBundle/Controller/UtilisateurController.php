@@ -2,7 +2,7 @@
 
 namespace StalkerBundle\Controller;
 
-use StalkerBundle\Entity\User;
+use StalkerBundle\Entity\Utilisateur;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,21 +15,21 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 /**
- * Class UserController
+ * Class UtilisateurController
  * @package StalkerBundle\Controller
  *
- * @Rest\Prefix("user")
+ * @Rest\Prefix("utilisateur")
  * @Rest\NamePrefix("stalker_api_")
- * @Rest\RouteResource("User")
+ * @Rest\RouteResource("Utilisateur")
  */
-class UserController extends Controller
+class UtilisateurController extends Controller
 {
     /**
      * @Rest\View
      * @Rest\Get("")
      * @ApiDoc(
      *  description="Récupération de la liste des utilisateurs",
-     *  output="StalkerBundle\Entity\User",
+     *  output="StalkerBundle\Entity\Utilisateur",
      *  statusCodes={
      *      200="Code Retourné si aucune erreur n'est rencontrée",
      *      404="foo"
@@ -38,13 +38,13 @@ class UserController extends Controller
      *
      * @return string json
      */
-    public function getUsersAction()
+    public function getUtilisateursAction()
     {
         $em = $this->getDoctrine()->getManager();
         $serializer = $this->get('jms_serializer');
-        $users = $em->getRepository('StalkerBundle:User')->findAll();
+        $utilisateurs = $em->getRepository('StalkerBundle:Utilisateur')->findAll();
 
-        return $this->responseGenerator($serializer, $users, Response::HTTP_OK);
+        return $this->responseGenerator($serializer, $utilisateurs, Response::HTTP_OK);
     }
 
     /**
@@ -52,7 +52,7 @@ class UserController extends Controller
      * @Rest\Get("/{id}")
      * @ApiDoc(
      *  description="Récupération d'un utilisateur via son identifiant",
-     *  output="StalkerBundle\Entity\User",
+     *  output="StalkerBundle\Entity\Utilisateur",
      *  statusCodes={
      *      200="Code retourné si aucune erreur n'est rencontrée",
      *      404="Code retourné si aucun utilisateur ne correspond à l'identifiant communiqué"
@@ -61,10 +61,10 @@ class UserController extends Controller
      *
      * @return string json
      */
-    public function getUserAction(User $user)
+    public function getUtilisateurAction(Utilisateur $utilisateur)
     {
         $serializer = $this->get('jms_serializer');
-        return $this->responseGenerator($serializer, $user, Response::HTTP_OK);
+        return $this->responseGenerator($serializer, $utilisateur, Response::HTTP_OK);
     }
 
     /**

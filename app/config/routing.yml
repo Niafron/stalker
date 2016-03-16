@@ -15,15 +15,15 @@ NelmioApiDocBundle:
     prefix: /api/doc
 
 
-#stalker_api:
-    #type: rest
-    #resource: "@StalkerBundle/Resources/config/routing.yml"
-    #prefix: /
+stalker_api:
+    type: rest
+    resource: "@StalkerBundle/Resources/config/routing.yml"
+    prefix: /stalker
 
-stalker:
-    resource: "@StalkerBundle/Controller/"
-    type: annotation
-    prefix: /
+#stalker:
+    #resource: "@StalkerBundle/Controller/"
+    #type: annotation
+    #prefix: /
 
 
 

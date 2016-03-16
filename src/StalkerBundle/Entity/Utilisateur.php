@@ -7,13 +7,13 @@ use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 
 /**
- * User
+ * Utilisateur
  *
- * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="StalkerBundle\Repository\UserRepository")
+ * @ORM\Table(name="utilisateur")
+ * @ORM\Entity(repositoryClass="StalkerBundle\Repository\UtilisateurRepository")
  * @ExclusionPolicy("all")
  */
-class User
+class Utilisateur
 {
     /**
      * @var int
@@ -28,17 +28,17 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255)
      * @Expose
      */
-    private $name;
+    private $nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=255)
+     * @ORM\Column(name="motDePasse", type="string", length=255)
      */
-    private $password;
+    private $motDePasse;
 
     /**
      * @var string
@@ -60,56 +60,56 @@ class User
     }
 
     /**
-     * Set name
+     * Set nom
      *
-     * @param string $name
-     * @return User
+     * @param string $nom
+     * @return Utilisateur
      */
-    public function setName($name)
+    public function setNom($nom)
     {
-        $this->name = $name;
+        $this->nom = $nom;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get nom
      *
      * @return string 
      */
-    public function getName()
+    public function getNom()
     {
-        return $this->name;
+        return $this->nom;
     }
 
     /**
-     * Set password
+     * Set motDePasse
      *
-     * @param string $password
-     * @return User
+     * @param string $motDePasse
+     * @return Utilisateur
      */
-    public function setPassword($password)
+    public function setMotDePasse($motDePasse)
     {
-        $this->password = $password;
+        $this->motDePasse = $motDePasse;
 
         return $this;
     }
 
     /**
-     * Get password
+     * Get motDePasse
      *
      * @return string 
      */
-    public function getPassword()
+    public function getMotDePasse()
     {
-        return $this->password;
+        return $this->motDePasse;
     }
 
     /**
      * Set email
      *
      * @param string $email
-     * @return User
+     * @return Utilisateur
      */
     public function setEmail($email)
     {

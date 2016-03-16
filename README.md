@@ -16,3 +16,6 @@ http://localhost:8888/stalker/web/app_dev.php/api/doc
 doctrine:fixtures:load
 
 
+
+
+php composer.phar dump-autoload
