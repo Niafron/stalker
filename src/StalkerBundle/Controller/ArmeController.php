@@ -19,6 +19,8 @@ use Nelmio\ApiDocBundle\Annotation\ApiDoc;
  */
 class ArmeController extends Controller
 {
+    use \StalkerBundle\Services\ResponseGenerator;
+
     /**
      * @Rest\View
      * @Rest\Get("")
@@ -39,17 +41,27 @@ class ArmeController extends Controller
         $serializer = $this->get('jms_serializer');
         $armes = $em->getRepository('StalkerBundle:Arme')->findAll();
 
-        return $this->responseGenerator($serializer, $armes, Response::HTTP_OK);
+        return $this->generateJsonResponse($serializer, $armes);
     }
 
     /**
-     * @param SerializerInterface $serializer
-     * @param string $data
-     * @param string $httpCode
-     * @return Response
+     * @Rest\View
+     * @Rest\Get("/{id}")
+     * @ApiDoc(
+     *  description="Récupération d'une arme via son identifiant",
+     *  output="StalkerBundle\Entity\Arme",
+     *  statusCodes={
+     *      200="Code retourné si aucune erreur n'est rencontrée",
+     *      404="Code retourné si aucune arme ne correspond à l'identifiant communiqué"
+     *  }
+     * )
+     *
+     * @return string json
      */
-    private function responseGenerator (SerializerInterface $serializer, $data, $httpCode)
+    public function getArmeAction(Arme $arme)
     {
-        return new Response($serializer->serialize($data, 'json'), $httpCode, ['Accept: application/json; version=2']);
+        $serializer = $this->get('jms_serializer');
+
+        return $this->generateJsonResponse($serializer, $arme);
     }
 }

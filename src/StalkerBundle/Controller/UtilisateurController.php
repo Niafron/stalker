@@ -24,6 +24,8 @@ use Nelmio\ApiDocBundle\Annotation\ApiDoc;
  */
 class UtilisateurController extends Controller
 {
+    use \StalkerBundle\Services\ResponseGenerator;
+
     /**
      * @Rest\View
      * @Rest\Get("")
@@ -44,7 +46,7 @@ class UtilisateurController extends Controller
         $serializer = $this->get('jms_serializer');
         $utilisateurs = $em->getRepository('StalkerBundle:Utilisateur')->findAll();
 
-        return $this->responseGenerator($serializer, $utilisateurs, Response::HTTP_OK);
+        return $this->generateJsonResponse($serializer, $utilisateurs);
     }
 
     /**
@@ -64,17 +66,7 @@ class UtilisateurController extends Controller
     public function getUtilisateurAction(Utilisateur $utilisateur)
     {
         $serializer = $this->get('jms_serializer');
-        return $this->responseGenerator($serializer, $utilisateur, Response::HTTP_OK);
-    }
 
-    /**
-     * @param SerializerInterface $serializer
-     * @param string $data
-     * @param string $httpCode
-     * @return Response
-     */
-    private function responseGenerator (SerializerInterface $serializer, $data, $httpCode)
-    {
-        return new Response($serializer->serialize($data, 'json'), $httpCode, ['Accept: application/json; version=2']);
+        return $this->generateJsonResponse($serializer, $utilisateur);
     }
 }

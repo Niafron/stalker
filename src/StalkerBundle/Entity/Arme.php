@@ -74,20 +74,6 @@ class Arme
     /**
      * @var int
      *
-     * @ORM\Column(name="degatMin", type="integer", nullable=true)
-     */
-    private $degatMin;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="degatMax", type="integer", nullable=true)
-     */
-    private $degatMax;
-
-    /**
-     * @var int
-     *
      * @ORM\Column(name="bonusDeTouche", type="integer", nullable=true)
      */
     private $bonusDeTouche;
@@ -198,7 +184,7 @@ class Arme
      */
     public function setPrix($prix)
     {
-        $this->prix = $prix;
+        $this->prix = (is_null ($prix)) ? null : (int) $prix;
 
         return $this;
     }
@@ -222,7 +208,7 @@ class Arme
      */
     public function setPorteeEffective($porteeEffective)
     {
-        $this->porteeEffective = $porteeEffective;
+        $this->porteeEffective = (is_null ($porteeEffective)) ? null : (int) $porteeEffective;
 
         return $this;
     }
@@ -246,7 +232,7 @@ class Arme
      */
     public function setPorteeMaximale($porteeMaximale)
     {
-        $this->porteeMaximale = $porteeMaximale;
+        $this->porteeMaximale = (is_null ($porteeMaximale)) ? null : (int) $porteeMaximale;
 
         return $this;
     }
@@ -286,54 +272,6 @@ class Arme
     }
 
     /**
-     * Set degatMin
-     *
-     * @param integer $degatMin
-     *
-     * @return Arme
-     */
-    public function setDegatMin($degatMin)
-    {
-        $this->degatMin = $degatMin;
-
-        return $this;
-    }
-
-    /**
-     * Get degatMin
-     *
-     * @return int
-     */
-    public function getDegatMin()
-    {
-        return $this->degatMin;
-    }
-
-    /**
-     * Set degatMax
-     *
-     * @param integer $degatMax
-     *
-     * @return Arme
-     */
-    public function setDegatMax($degatMax)
-    {
-        $this->degatMax = $degatMax;
-
-        return $this;
-    }
-
-    /**
-     * Get degatMax
-     *
-     * @return int
-     */
-    public function getDegatMax()
-    {
-        return $this->degatMax;
-    }
-
-    /**
      * Set bonusDeTouche
      *
      * @param integer $bonusDeTouche
@@ -342,7 +280,7 @@ class Arme
      */
     public function setBonusDeTouche($bonusDeTouche)
     {
-        $this->bonusDeTouche = $bonusDeTouche;
+        $this->bonusDeTouche = (is_null ($bonusDeTouche)) ? null : (int) $bonusDeTouche;
 
         return $this;
     }
@@ -366,7 +304,7 @@ class Arme
      */
     public function setContenanceChargeur($contenanceChargeur)
     {
-        $this->contenanceChargeur = $contenanceChargeur;
+        $this->contenanceChargeur = (is_null ($contenanceChargeur)) ? null : (int) $contenanceChargeur;
 
         return $this;
     }
